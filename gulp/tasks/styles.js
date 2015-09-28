@@ -8,10 +8,10 @@ const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 const browsers = [
     'ie >= 11',
-    'ff >= 39',
-    'chrome >= 43',
+    'ff >= 41',
+    'chrome >= 45',
     'safari >= 8',
-    'ios >= 7',
+    'ios >= 8',
     'android >= 4.4'
   ];
 
