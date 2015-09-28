@@ -8,7 +8,7 @@
 * Ruby (>=2.0)
 * gem (>=2.0) `gem update --system`
 * Ruby Sass (>=3.4) `sudo gem install sass`
-* Nodejs w/npm (>= 0.12.6)
+* Nodejs w/npm (>= 4.0)
 * Bower `npm install -g bower`
 * gulp `npm install -g gulp`
 
@@ -34,7 +34,7 @@ $ npm run local
 ```
 `app`, `.tmp`をルートディレクトリとしてローカルサーバを立てる。
 
-### product
+### product
 ```
 $ npm run build
 ```sh
