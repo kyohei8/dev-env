@@ -1,5 +1,4 @@
 import './gulp/tasks/styles';
-import './gulp/tasks/lint';
 import './gulp/tasks/html';
 import './gulp/tasks/clean';
 import './gulp/tasks/images';
