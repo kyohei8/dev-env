@@ -23,7 +23,7 @@ const sassOpt = {
 };
 
 gulp.task('styles', () => {
-  return sass('app/styles/', sassOpt)
+  return sass('app/styles/**/*.scss', sassOpt)
     .on('error', handleError)
     .pipe($.plumber())
     .pipe($.autoprefixer({browsers}))

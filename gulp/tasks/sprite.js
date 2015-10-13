@@ -19,5 +19,5 @@ const spriteOpt = {
 gulp.task('sprite', () => {
   const spriteData = gulp.src(imgSrc).pipe(spritesmith(spriteOpt));
   spriteData.img.pipe(gulp.dest('app/assets/images'));
-  spriteData.css.pipe(gulp.dest('app/assets/styles/modules/'));
+  spriteData.css.pipe(gulp.dest('app/styles/modules/'));
 });
