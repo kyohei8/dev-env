@@ -1,0 +1,50 @@
+doctype html
+html.no-js(lang='')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    //- for mobile
+    //- meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no')
+    title ***
+
+    // Place favicon.ico in the root directory
+    link(rel="shortcut icon", href="/favicon.ico")
+    link(rel='apple-touch-icon', href='/apple-touch-icon.png')
+
+    // build:css styles/vendor.css
+    // bower:css
+    link(rel='stylesheet', href='/bower_components/normalize.css/normalize.css')
+    // endbower
+    // endbuild
+
+    // build:css styles/main.css
+    link(rel='stylesheet', href='styles/main.css')
+    // endbuild
+
+    // build:js scripts/vendor/modernizr.js
+    script(src='/bower_components/modernizr/modernizr.js')
+    // endbuild
+  body
+    .hero-unit
+      h1 test
+      h2#sub
+      p.sprite-test
+
+    //- Google Analytics: change UA-XXXXX-X to be your site's ID.
+    script.
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+
+    // build:js scripts/vendor.js
+    // bower:js
+    script(src='/bower_components/easeljs/lib/easeljs-0.8.1.combined.js')
+    // endbower
+    // endbuild
+
+    // build:js scripts/main.js
+    script(src='scripts/app.js')
+    // endbuild

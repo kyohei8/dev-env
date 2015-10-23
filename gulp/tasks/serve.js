@@ -4,7 +4,7 @@ import browserSync from 'browser-sync';
 
 const reload = browserSync.reload;
 
-gulp.task('serve', ['sprite', 'styles', 'fonts'], () => {
+gulp.task('serve', ['sprite', 'styles', 'fonts', 'jade', 'js'], () => {
   browserSync({
     notify: false,
     port: 9000,
@@ -22,6 +22,7 @@ gulp.task('serve', ['sprite', 'styles', 'fonts'], () => {
     '.tmp/fonts/**/*'
   ]).on('change', reload);
 
+  gulp.watch('app/**/*.jade', ['jade']);
   gulp.watch('app/styles/**/*.scss', ['styles']);
   gulp.watch('app/scripts/**/*.js', ['js']);
   gulp.watch('app/fonts/**/*', ['fonts']);
