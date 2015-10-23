@@ -4,7 +4,7 @@ import gulp from 'gulp';
 gulp.task('extras', () => {
   gulp.src([
     'app/*.*',
-    '!app/*.html'
+    '!app/*.jade'
   ], {
     dot: true
   }).pipe(gulp.dest('dist'));

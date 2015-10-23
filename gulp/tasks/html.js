@@ -33,7 +33,7 @@ gulp.task('html', ['styles'], () => {
     searchPath: ['.tmp']
   });
 
-  return gulp.src('app/*.html')
+  return gulp.src('.tmp/*.html')
     .pipe(jsCssAssets)
     .pipe($.if('*.js', $.uglify().on('error', $.util.log )))
     .pipe($.if('*.css', $.minifyCss({
