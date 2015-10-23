@@ -36,11 +36,14 @@ gulp.task('html', ['styles'], () => {
   return gulp.src('app/*.html')
     .pipe(jsCssAssets)
     .pipe($.if('*.js', $.uglify().on('error', $.util.log )))
-    .pipe($.if('*.css', $.minifyCss({compatibility: '*'})))
+    .pipe($.if('*.css', $.minifyCss({
+      processImport: false,
+      compatibility: '*'
+    })))
     .pipe(jsCssAssets.restore())
     .pipe(assets)
     .pipe(assets.restore())
     .pipe($.useref())
-    .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
+    .pipe($.if('*.html', $.minifyHtml(minifyHtmlOpt)))
     .pipe(gulp.dest('dist'));
 });
