@@ -8,6 +8,8 @@ gulp.task('serve', ['sprite', 'styles', 'fonts', 'jade', 'js'], () => {
   browserSync({
     notify: false,
     port: 9000,
+    open: false,
+    reloadOnRestart: true,
     server: {
       baseDir: ['.tmp', 'app'],
       routes: {
