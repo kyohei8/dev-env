@@ -11,14 +11,12 @@ module.exports = {
 
   devtool: '#source-map',
 
-  entry: {
-    app: './app/scripts/app.js'
-  },
+  entry: [ './app/scripts' ],
 
   output: {
     path: path.join(__dirname, '.tmp', 'scripts'),
     publicPath: '.tmp/scripts/',
-    filename: '[name].js',
+    filename: '[name].bundle.js',
     chunkFilename: '[chunkhash].js',
     sourceMapFilename: '[name].map'
   },
