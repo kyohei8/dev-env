@@ -9,6 +9,8 @@ module.exports = {
 
   cache: true,
 
+  devtool: '#source-map',
+
   entry: {
     app: './app/scripts/app.js'
   },
@@ -17,7 +19,8 @@ module.exports = {
     path: path.join(__dirname, '.tmp', 'scripts'),
     publicPath: '.tmp/scripts/',
     filename: '[name].js',
-    chunkFilename: '[chunkhash].js'
+    chunkFilename: '[chunkhash].js',
+    sourceMapFilename: '[name].map'
   },
 
   module: {
