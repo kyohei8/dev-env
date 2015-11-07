@@ -8,7 +8,7 @@ plugins: [
 # eslint rules -> 0: disable, 1: warn, 2: error
 rules:
   # plugins
-  filenames/filenames     : [2, "^[A-Z][A-Za-z.]+$"] # ファイル名の規則(キャメルケースで書く)
+  filenames/filenames     : [0, "^[A-Z][A-Za-z.]+$"] # ファイル名の規則(キャメルケースで書く)
   # Possible Errors
   comma-dangle            : [2, 'never'] # ケツカンマ無効
   no-cond-assign          : 2            # 条件式で'='を禁止
@@ -69,7 +69,7 @@ rules:
   no-labels               : 2            # labeledの使用を禁止
   no-lone-blocks          : 2            # 不要なブロックスコープを禁止
   no-loop-func            : 2            # ループ内での関数の定義を禁止
-  no-magic-number         : [2, {        # マジックナンバーを禁止
+  no-magic-numbers        : [2, {        # マジックナンバーを禁止
     enforceConst: true
   }]
   no-multi-spaces         : [2, {        # 不要なスペース文字を禁止

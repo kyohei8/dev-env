@@ -1,9 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
 
-// webpack-dev-server options used in gulpfile
-// https://github.com/webpack/webpack-dev-server
-
 module.exports = {
   contentBase: path.resolve(__dirname, 'app'),
 
@@ -11,11 +8,14 @@ module.exports = {
 
   devtool: '#source-map',
 
-  entry: [ './app/scripts' ],
+  entry: [
+    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true',
+    './app/scripts'
+  ],
 
   output: {
     path: path.join(__dirname, '.tmp', 'scripts'),
-    publicPath: '.tmp/scripts/',
+    publicPath: '/scripts/',
     filename: '[name].bundle.js',
     chunkFilename: '[chunkhash].js',
     sourceMapFilename: '[name].map'
@@ -25,13 +25,15 @@ module.exports = {
     preLoaders: [{
       test: /\.js$/,
       exclude: /(node_modules|bower_components)/,
-      loader: 'eslint-loader'
+      include: __dirname,
+      loaders: ['eslint']
     }],
 
     loaders: [{
-      test: /\.js$/,
+      // test: /\.js$/,
       exclude: /(node_modules|bower_components)/,
-      loader: 'babel-loader'
+      include: __dirname,
+      loaders: ['babel']
     }],
 
     resolve:{
@@ -40,9 +42,13 @@ module.exports = {
 
     modulesDirectories: ['src', 'src/js', 'web_modules', 'bower_components', 'node_modules'],
 
-    alias:{
-    },
+    alias:{}
+  },
 
-    plugins: []
-  }
+  plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ]
+
 };
