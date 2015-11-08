@@ -2,12 +2,24 @@
 
 🚧👷 WIP 👷🚧
 
+## Introduction
+
+### JavaScript
+* ES2015で記述する
+* webpackとbabelを使ってコンパイルされる
+* eslintでlintする
+
+### CSS
+* sassで記述する
+* gulp-sass(libsass)でコンパイルされる
+* `app/assets/images/sprites/`にある画像はspritesmithで一つのsprite画像にまとめられる
+
+### HTML
+* jadeで記述する
+
 ## Requirements
 各種ミドルウェアをインストール
 
-* Ruby (>=2.0)
-* gem (>=2.0) `gem update --system`
-* Ruby Sass (>=3.4) `sudo gem install sass`
 * Nodejs w/npm (>= 4.0)
 * Bower `npm install -g bower`
 * gulp `npm install -g gulp`
@@ -30,7 +42,7 @@ $ bower install
 
 ### local
 ``sh
-$ npm run local
+$ npm start
 ```
 `app`, `.tmp`をルートディレクトリとしてローカルサーバを立てる。
 

@@ -4,12 +4,24 @@
 
 brand new my frontend dev env.
 
+## Introduction
+
+### JavaScript
+* writing ES2015
+* To Compiled using babel and webpack.
+* linting with eslint
+
+### CSS
+* writing sass
+* To Compiled gulp-sass(libsass)
+* `app/assets/images/sprites/` images in are summarized in one of the sprite image in spritesmith
+
+### HTML
+* writing jade
+
 ## Requirements
 Install some middlewares.
 
-* Ruby (>=2.0)
-* gem (>=2.0) `gem update --system`
-* Ruby Sass (>=3.4) `sudo gem install sass`
 * Nodejs w/npm (>= 4.0)
 * Bower `npm install -g bower`
 * gulp `npm install -g gulp`
@@ -33,7 +45,7 @@ If there is no package to npm, it will use the bower.
 
 ### local
 ```sh
-$ npm run local
+$ npm start
 ```
 To launch local server, `app` and ` .tmp` as the root directory.
 
