@@ -25,7 +25,7 @@ gulp.task('jade', () => {
 });
 
 // ※ gulp jsを先に実行しておくこと
-gulp.task('html', ['styles'], () => {
+gulp.task('html', () => {
   const assets = $.useref.assets({
     searchPath: ['{app, !app/scripts', '.']
   });
