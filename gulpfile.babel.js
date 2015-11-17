@@ -6,6 +6,5 @@ import './gulp/tasks/fonts';
 import './gulp/tasks/extras';
 import './gulp/tasks/serve';
 import './gulp/tasks/wiredep';
-import './gulp/tasks/default';
 import './gulp/tasks/sprite';
 import './gulp/tasks/build';
