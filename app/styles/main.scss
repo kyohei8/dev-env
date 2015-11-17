@@ -1,18 +1,8 @@
-// bower:scss
-@import "bower_components/sass-mediaqueries/_media-queries.scss";
-// endbower
-
 @import './modules/_sprite';
 
 
 h1{
   color: #0cea77;
-}
-
-@include screen(320px, 640px) {
-  h1{
-    color: red;
-  }
 }
 
 .sprite-test{

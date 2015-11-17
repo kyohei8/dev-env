@@ -3,9 +3,7 @@
   "private": true,
   "dependencies": {
     "modernizr": "~2.8.1",
-    "easeljs": "~0.8.1",
     "normalize.css": "~3.0.3",
-    "sass-mediaqueries": "~1.5.1"
   },
   "devDependencies": {
     "chai": "~3.0.0",
