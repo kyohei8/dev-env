@@ -34,6 +34,7 @@ gulp.task('html', ['styles'], () => {
   });
 
   return gulp.src('.tmp/*.html')
+    .pipe($.debug())
     .pipe(jsCssAssets)
     .pipe($.if('*.js', $.uglify().on('error', $.util.log )))
     .pipe($.if('*.css', $.minifyCss({
