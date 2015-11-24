@@ -41,9 +41,7 @@ gulp.task('html', () => {
       processImport: false,
       compatibility: '*'
     })))
-    .pipe(jsCssAssets.restore())
     .pipe(assets)
-    .pipe(assets.restore())
     .pipe($.useref())
     .pipe($.if('*.html', $.minifyHtml(minifyHtmlOpt)))
     .pipe(gulp.dest('dist'));
