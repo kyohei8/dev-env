@@ -1,14 +1,12 @@
 import { VERSION } from 'lodash';
-console.log(VERSION);
 
 class App{
   constructor(){
     const sub = document.getElementById('sub');
-    sub.textContent = ' > update by JavaScript <';
+    sub.textContent = ` > use lodash version => ${VERSION} <`;
   }
-
   foo(){
-    console.log('bar.');
+    // console.log('bar.');
   }
 }
 

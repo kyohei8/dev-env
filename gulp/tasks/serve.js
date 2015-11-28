@@ -7,7 +7,24 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 const bundler = webpack(webpackConfig);
 
 import browserSync from 'browser-sync';
+const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
+
+const defaultStatsOptions = {
+  colors: $.util.colors.supportsColor,
+  hash: false,
+  timings: false,
+  chunks: false,
+  chunkModules: false,
+  modules: false, // reduce log
+  children: true,
+  version: true,
+  cached: true,
+  cachedAssets: true,
+  reasons: true,
+  source: true,
+  errorDetails: true
+};
 
 gulp.task('serve', ['sprite', 'styles', 'fonts', 'jade'], () => {
   browserSync({
@@ -25,9 +42,7 @@ gulp.task('serve', ['sprite', 'styles', 'fonts', 'jade'], () => {
           publicPath: webpackConfig.output.publicPath,
           noInfo: false,
           quiet: false,
-          stats: {
-            colors: true
-          }
+          stats: defaultStatsOptions
         }),
         webpackHotMiddleware(bundler)
       ]
