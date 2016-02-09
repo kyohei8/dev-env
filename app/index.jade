@@ -11,18 +11,12 @@ html.no-js(lang='')
     link(rel="shortcut icon", href="/favicon.ico")
     link(rel='apple-touch-icon', href='/apple-touch-icon.png')
 
-    // build:css styles/vendor.css
-    // bower:css
-    link(rel='stylesheet', href='../bower_components/normalize.css/normalize.css')
-    // endbower
-    // endbuild
-
     // build:css styles/main.css
     link(rel='stylesheet', href='styles/main.css')
     // endbuild
 
     // build:js scripts/vendor/modernizr.js
-    script(src='../bower_components/modernizr/modernizr.js')
+    script(src="/node_modules/npm-modernizr/modernizr.js")
     // endbuild
   body
     .hero-unit
@@ -38,11 +32,6 @@ html.no-js(lang='')
       e.src='https://www.google-analytics.com/analytics.js';
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-XXXXX-X');ga('send','pageview');
-
-    // build:js scripts/vendor.js
-    // bower:js
-    // endbower
-    // endbuild
 
     // build:js scripts/main.bundle.js
     script(src='scripts/main.bundle.js')

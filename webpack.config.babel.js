@@ -24,25 +24,32 @@ module.exports = {
   module: {
     preLoaders: [{
       test: /\.js$/,
-      exclude: /(node_modules|bower_components)/,
+      exclude: /(node_modules)/,
       include: __dirname,
       loaders: ['eslint']
     }],
 
     loaders: [{
-      // test: /\.js$/,
-      exclude: /(node_modules|bower_components)/,
+      test: /\.(js|jsx)$/,
+      exclude: /node_modules/,
       include: __dirname,
-      loaders: ['babel']
+      loader: 'babel-loader',
+      query: {
+        presets: ['es2015', 'stage-0']
+      }
     }],
 
-    resolve:{
-      extensions: ['', '.js']
-    },
-
-    modulesDirectories: ['src', 'src/js', 'web_modules', 'bower_components', 'node_modules'],
+    modulesDirectories: ['src', 'src/js', 'web_modules', 'node_modules'],
 
     alias:{}
+  },
+
+  eslint: {
+    fix: true
+  },
+
+  resolve:{
+    extensions: ['', '.js', '.jsx']
   },
 
   plugins: [
