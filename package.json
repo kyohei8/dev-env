@@ -45,6 +45,7 @@
     "webpack": "^1.12.13",
     "webpack-dev-middleware": "^1.5.1",
     "webpack-hot-middleware": "^2.6.4",
+    "webpack-notifier": "^1.2.1",
     "wiredep": "^3.0.0"
   },
   "dependencies": {

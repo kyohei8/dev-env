@@ -1,3 +1,4 @@
+import WebpackNotifierPlugin from 'webpack-notifier';
 import path from 'path';
 import webpack from 'webpack';
 
@@ -53,6 +54,7 @@ module.exports = {
   },
 
   plugins: [
+    new WebpackNotifierPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
