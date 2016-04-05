@@ -1,12 +1,13 @@
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
+import browserSync from 'browser-sync';
+
 import webpack from 'webpack';
-import webpackConfig from '../../webpack.config.babel';
+import webpackConfig from '../../webpack.config.development.babel';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 const bundler = webpack(webpackConfig);
 
-import browserSync from 'browser-sync';
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 

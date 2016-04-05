@@ -7,7 +7,7 @@ const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 import webpack from 'webpack';
-import webpackConfig from '../../webpack.config.babel';
+import webpackConfig from '../../webpack.config.production.babel';
 
 // product build
 // .tmpにjsファイルを生成
@@ -17,7 +17,14 @@ gulp.task('js:prod', () => {
     if(err){
       throw new Error('webpack build failed');
     }
-    $.util.log(stats.toString({colors: true}));
+    $.util.log(stats.toString({
+      colors: true,
+      version: false,
+      hash: false,
+      timings: false,
+      chunks: true,
+      chunkModules: false
+    }));
     reload();
   });
 });

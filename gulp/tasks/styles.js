@@ -14,7 +14,14 @@ const browsers = [
     'android >= 4.4'
   ];
 
-gulp.task('styles', () => {
+gulp.task('sass-lint', () => {
+  gulp.src('app/styles/*.scss')
+    .pipe($.plumber())
+    .pipe($.sassLint())
+    .pipe($.sassLint.format())
+});
+
+gulp.task('styles', ['sass-lint'], () => {
   gulp.src('app/styles/**/*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
