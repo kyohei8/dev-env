@@ -16,6 +16,7 @@ body {
 }
 
 .container {
+  text: #fff bold center 1.25em 1.4 0.05em;
   &__nest {
     position: absolute 10px 10px;
     color: color(red alpha(-10%));
