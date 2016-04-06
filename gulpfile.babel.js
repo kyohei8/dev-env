@@ -1,4 +1,4 @@
-import './gulp/tasks/css';
+import './gulp/tasks/styles';
 import './gulp/tasks/html';
 import './gulp/tasks/clean';
 import './gulp/tasks/images';
