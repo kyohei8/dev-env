@@ -36,7 +36,7 @@ gulp.task('serve', ['sprite', 'styles', 'fonts', 'jade'], () => {
     server         : {
       baseDir: ['.tmp', 'app'],
       routes: {
-        '/bower_components': 'bower_components'
+        '/node_modules': 'node_modules'
       },
       middleware: [
         webpackDevMiddleware(bundler, {
@@ -80,7 +80,7 @@ gulp.task('serve:test', () => {
     server: {
       baseDir: 'test',
       routes: {
-        '/bower_components': 'bower_components'
+        '/node_modules': 'node_modules'
       }
     }
   });
