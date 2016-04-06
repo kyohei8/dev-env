@@ -24,6 +24,7 @@
     "browser-sync": "^2.11.2",
     "chai": "^3.5.0",
     "del": "^2.2.0",
+    "doiuse": "^2.3.0",
     "eslint": "^2.7.0",
     "eslint-loader": "^1.3.0",
     "gulp": "^3.9.1",

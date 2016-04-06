@@ -8,6 +8,7 @@ import _import from 'postcss-import';
 import stylelint from 'stylelint';
 import reporter from 'postcss-reporter';
 import browserSync from 'browser-sync';
+import doiuse from 'doiuse';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.stream;
@@ -25,6 +26,11 @@ const processors = [
   stylelint,
   short,
   _import,
+  doiuse({
+    browsers,
+    ignore: ['flexbox'],
+    ignoreFiles: ['**/normalize.css', '**/_sprite.css']
+  }),
   cssnext({browsers}),
   reporter({ clearMessages: true })
 ];
