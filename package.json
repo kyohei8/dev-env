@@ -51,6 +51,7 @@
     "main-bower-files": "^2.11.1",
     "mocha": "^2.4.5",
     "opn": "^4.0.1",
+    "postcss-assets": "^4.0.1",
     "postcss-cssnext": "^2.5.2",
     "postcss-import": "^8.1.0",
     "postcss-nested": "^1.0.0",

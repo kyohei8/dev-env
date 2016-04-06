@@ -10,7 +10,8 @@ h1 {
 }
 
 body {
-  color: #333 #fafafa;
+  color: #fafafa;
+  background: resolve("background.jpg") no-repeat 0 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 

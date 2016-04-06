@@ -6,6 +6,7 @@ import cssnext from 'postcss-cssnext';
 import short from 'postcss-short';
 import _import from 'postcss-import';
 import stylelint from 'stylelint';
+import assets from 'postcss-assets';
 import reporter from 'postcss-reporter';
 import browserSync from 'browser-sync';
 import doiuse from 'doiuse';
@@ -30,6 +31,10 @@ const processors = [
     browsers,
     ignore: ['flexbox'],
     ignoreFiles: ['**/normalize.css', '**/_sprite.css']
+  }),
+  assets({
+    basePath: 'app/',
+    loadPaths: ['assets/images/']
   }),
   cssnext({browsers}),
   reporter({ clearMessages: true })
