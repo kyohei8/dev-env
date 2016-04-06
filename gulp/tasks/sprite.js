@@ -10,8 +10,8 @@ const spriteOpt = {
   retinaSrcFilter: ['app/assets/images/sprites/*@2x.png'],
   imgPath        : '../assets/images/sprites.png', // sassに記載されるパス
   retinaImgPath  : '../assets/images/sprites@2x.png',
-  cssName        : '_sprite.scss', // 出力されるcssとそのフォーマット
-  cssFormat      : 'scss_retina',
+  cssName        : '_sprite.css', // 出力されるcssとそのフォーマット
+  cssFormat      : 'css_retina',
   padding        : 10
 };
 

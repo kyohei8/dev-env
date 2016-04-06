@@ -1,0 +1,29 @@
+@import "normalize.css/normalize";
+@import "./modules/_sprite";
+
+:root {
+  --linkColour: purple;
+}
+
+h1 {
+  color: var(--linkColour);
+}
+
+body {
+  color: #333 #fafafa;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.container {
+  &__nest {
+    position: absolute 10px 10px;
+    color: color(red alpha(-10%));
+    font-size: 20px;
+  }
+  & .item {
+    display: flex;
+    flex-flow: row wrap;
+    size: 48px;
+  }
+}
+

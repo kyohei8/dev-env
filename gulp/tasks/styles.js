@@ -1,33 +1,40 @@
+// postcss
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
+import postcss from 'gulp-postcss';
+import cssnext from 'postcss-cssnext';
+import short from 'postcss-short';
+import _import from 'postcss-import';
+import stylelint from 'stylelint';
+import reporter from 'postcss-reporter';
 import browserSync from 'browser-sync';
-import handleError from '../utils/handleError';
 
 const $ = gulpLoadPlugins();
-const reload = browserSync.reload;
+const reload = browserSync.stream;
+
 const browsers = [
-    'ie >= 11',
-    'ff >= 41',
-    'chrome >= 45',
-    'safari >= 8',
-    'ios >= 8',
-    'android >= 4.4'
-  ];
+  'ie >= 11',
+  'ff >= 41',
+  'chrome >= 45',
+  'safari >= 8',
+  'ios >= 7',
+  'android >= 4.4'
+];
 
-gulp.task('sass-lint', () => {
-  gulp.src('app/styles/*.scss')
-    .pipe($.plumber())
-    .pipe($.sassLint())
-    .pipe($.sassLint.format())
-});
+const processors = [
+  stylelint,
+  short,
+  _import,
+  cssnext({browsers}),
+  reporter({ clearMessages: true })
+];
 
-gulp.task('styles', ['sass-lint'], () => {
-  gulp.src('app/styles/**/*.scss')
-    .pipe($.plumber())
-    .pipe($.sourcemaps.init())
-    .pipe($.sass().on('error', handleError))
-    .pipe($.sourcemaps.write({sourceRoot: './'}))
-    .pipe($.autoprefixer({browsers}))
-    .pipe(gulp.dest('.tmp/styles'))
-    .pipe(reload({stream: true}));
+gulp.task('styles', () => {
+  return gulp.src('app/styles/**/*.css')
+  .pipe($.plumber())
+  .pipe($.sourcemaps.init())
+  .pipe(postcss(processors))
+  .pipe($.sourcemaps.write('.'))
+  .pipe(gulp.dest('.tmp/styles'))
+  .pipe(reload({match: "**/*.css"}));
 });
