@@ -51,13 +51,25 @@ const processors = [
       }
       return Promise.reject();
     },
+    groupBy: function(image) {
+      if (image.url.indexOf('@2x') === -1) {
+        return Promise.resolve('@1x');
+      }
+      return Promise.resolve('@2x');
+    },
     spritesmith: {
       padding: 10
     },
     hooks: {
       // 出力されるスプライト画像ファイル名を変更する sprite@2xだと同じファイルが量産されるので
       onSaveSpritesheet: function(opts, groups) {
-        return path.join(opts.spritePath, 'postsprites.png');
+        if(groups[0] === '@1x'){
+          // 通常サイズのスプライト
+          return path.join(opts.spritePath, '_sprites.png');
+        }else{
+          // retinaサイズのスプライト
+          return path.join(opts.spritePath, '_sprites@2x.png');
+        }
       }
     }
   }),
@@ -66,24 +78,24 @@ const processors = [
 
 gulp.task('stylelint', () => {
   return gulp.src('app/styles/**/*.css')
-  .pipe($.plumber())
-  .pipe(postcss([
-    stylelint,
-    doiuse({
-      browsers,
-      ignore: ['flexbox'],
-      ignoreFiles: ['**/node_modules/**/*.css', '**/_sprite.css']
-    }),
-    reporter({ clearMessages: true })
-  ]))
+    .pipe($.plumber())
+    .pipe(postcss([
+      stylelint,
+      doiuse({
+        browsers,
+        ignore: ['flexbox'],
+        ignoreFiles: ['**/node_modules/**/*.css', '**/_sprite.css']
+      }),
+      reporter({ clearMessages: true })
+    ]))
 });
 
 gulp.task('styles', ['stylelint'], () => {
   return gulp.src('app/styles/**/main.css')
-  .pipe($.plumber())
-  .pipe($.sourcemaps.init())
-  .pipe(postcss(processors))
-  .pipe($.sourcemaps.write('.'))
-  .pipe(gulp.dest('.tmp/styles'))
-  .pipe(reload({match: "**/*.css"}));
+    .pipe($.plumber())
+    .pipe($.sourcemaps.init())
+    .pipe(postcss(processors))
+    .pipe($.sourcemaps.write('.'))
+    .pipe(gulp.dest('.tmp/styles'))
+    .pipe(reload({match: "**/*.css"}));
 });
