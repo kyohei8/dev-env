@@ -72,6 +72,6 @@
   "dependencies": {
     "lodash": "^4.8.2",
     "npm-modernizr": "^2.8.3",
-    "sanitize.css": "^3.3.0",
+    "sanitize.css": "^3.3.0"
   }
 }
