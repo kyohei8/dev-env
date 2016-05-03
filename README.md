@@ -1,20 +1,20 @@
 # [WIP] FrontEnd Development Environment for ME!
 
-🚧👷 WIP 👷🚧
+🚧👷 (eternal)WIP 👷🚧
 
 brand new my frontend dev env.
 
 ## Introduction
 
 ### JavaScript
-* writing ES2015
-* To Compiled using babel and webpack.
-* linting with eslint
+* writing ES2015.
+* To compiled using babel and webpack.
+* linting with eslint.
 
 ### CSS
-* writing sass
-* To Compiled gulp-sass(libsass)
-* `app/assets/images/sprites/` images in are summarized in one of the sprite image in spritesmith
+* writing postcss
+* To compiled using gulp-postcss
+* `app/assets/images/sprites/` images in are summarized in one of the sprite image.
 
 ### HTML
 * writing jade
@@ -23,7 +23,6 @@ brand new my frontend dev env.
 Install some middlewares.
 
 * Nodejs w/npm (>= 4.0)
-* Bower `npm install -g bower`
 * gulp `npm install -g gulp`
 
 ## Install
@@ -33,13 +32,6 @@ Install dependencies.
 ```sh
 $ npm install
 ```
-```sh
-$ bower install
-```
-
-### npm or bower
-We are using a two package management system. But basically is to use the npm.
-If there is no package to npm, it will use the bower.
 
 ## Usage
 
