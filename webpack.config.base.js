@@ -26,7 +26,7 @@ export default {
 
     loaders: [{
       test: /\.(js|jsx)$/,
-      exclude: /(node_modules|bower_components)/,
+      exclude: /node_modules/,
       include: __dirname,
       loaders: ['babel']
     }],

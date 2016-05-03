@@ -4,44 +4,82 @@ import gulpLoadPlugins from 'gulp-load-plugins';
 import postcss from 'gulp-postcss';
 import cssnext from 'postcss-cssnext';
 import short from 'postcss-short';
-import _import from 'postcss-import';
+import _import from 'postcss-easy-import';
 import stylelint from 'stylelint';
 import assets from 'postcss-assets';
 import reporter from 'postcss-reporter';
 import browserSync from 'browser-sync';
 import doiuse from 'doiuse';
+import sprites, { updateRule } from 'postcss-sprites';
+import path from 'path';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.stream;
 
 const browsers = [
   'ie >= 11',
-  'ff >= 41',
-  'chrome >= 45',
+  'ff >= 44',
+  'chrome >= 48',
   'safari >= 8',
   'ios >= 7',
-  'android >= 4.4'
+  'android >= 4.4',
+  'ChromeAndroid >= 45'
 ];
 
 const processors = [
-  stylelint,
-  short,
-  _import,
-  doiuse({
-    browsers,
-    ignore: ['flexbox'],
-    ignoreFiles: ['**/normalize.css', '**/_sprite.css']
+  _import({
+    path: ['node_modules'],
+    glob: true
   }),
+  short,
+  cssnext({browsers}),
   assets({
     basePath: 'app/',
-    loadPaths: ['assets/images/']
+    loadPaths: ['assets/images/'],
+    relativeTo: 'app'
   }),
-  cssnext({browsers}),
+  sprites({
+    stylesheetPath: 'app/styles/', //出力するcssのパス
+    spritePath: 'app/assets/images',   //スプライト画像を出力する先のパス
+    basePath: 'app/',  // urlのベースパス
+    relativeTo: 'app',
+    retina: true,
+    // images/spritesのみスプライトの対象とする
+    filterBy(image){
+      if(/images\/sprites/.test(image.url)){
+        return Promise.resolve();
+      }
+      return Promise.reject();
+    },
+    spritesmith: {
+      padding: 10
+    },
+    hooks: {
+      // 出力されるスプライト画像ファイル名を変更する sprite@2xだと同じファイルが量産されるので
+      onSaveSpritesheet: function(opts, groups) {
+        return path.join(opts.spritePath, 'postsprites.png');
+      }
+    }
+  }),
   reporter({ clearMessages: true })
 ];
 
-gulp.task('styles', () => {
+gulp.task('stylelint', () => {
   return gulp.src('app/styles/**/*.css')
+  .pipe($.plumber())
+  .pipe(postcss([
+    stylelint,
+    doiuse({
+      browsers,
+      ignore: ['flexbox'],
+      ignoreFiles: ['**/node_modules/**/*.css', '**/_sprite.css']
+    }),
+    reporter({ clearMessages: true })
+  ]))
+});
+
+gulp.task('styles', ['stylelint'], () => {
+  return gulp.src('app/styles/**/main.css')
   .pipe($.plumber())
   .pipe($.sourcemaps.init())
   .pipe(postcss(processors))

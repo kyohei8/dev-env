@@ -27,12 +27,17 @@ const defaultStatsOptions = {
   errorDetails: true
 };
 
-gulp.task('serve', ['sprite', 'styles', 'fonts', 'jade'], () => {
+gulp.task('serve', ['styles', 'fonts', 'jade'], () => {
   browserSync({
     notify         : false,
     port           : 9000,
     open           : false,
     reloadOnRestart: true,
+    ghostMode: {
+      clicks: false,
+      forms: false,
+      scroll: false
+    },
     server         : {
       baseDir: ['.tmp', 'app'],
       routes: {

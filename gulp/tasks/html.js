@@ -24,19 +24,18 @@ gulp.task('jade', () => {
     .pipe(reload({stream: true}));
 });
 
-// ※ gulp jsを先に実行しておくこと
+// ※ gulp js, jadeを先に実行しておくこと
 gulp.task('html', () => {
-  const assets = $.useref.assets({
+  const assets = $.useref({
     searchPath: ['{app, !app/scripts', '.']
   });
-  const jsCssAssets = $.useref.assets({
+  const jsCssAssets = $.useref({
     searchPath: ['.tmp']
   });
 
   return gulp.src('.tmp/*.html')
     .pipe($.debug())
     .pipe(jsCssAssets)
-    .pipe($.if('*.js', $.uglify().on('error', $.util.log )))
     .pipe($.if('*.css', $.minifyCss({
       processImport: false,
       compatibility: '*'
