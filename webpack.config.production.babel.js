@@ -1,10 +1,16 @@
 import baseConfig from './webpack.config.base';
 import webpack from 'webpack';
+import glob from 'glob'
+
+const _entry = {};
+glob.sync('./app/scripts/*.js').forEach((file) => {
+  const matcher = file.match(/scripts\/(.+)\.js/);
+  const filename = matcher[1];
+  _entry[filename] = [ file ];
+});
 
 const config = Object.create(baseConfig);
-config.entry = [
-  './app/scripts'
-];
+config.entry = _entry;
 
 config.plugins = [
   new webpack.optimize.DedupePlugin(), // 重複したファイルを除去

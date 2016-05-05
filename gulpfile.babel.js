@@ -5,4 +5,5 @@ import './gulp/tasks/images';
 import './gulp/tasks/fonts';
 import './gulp/tasks/serve';
 import './gulp/tasks/wiredep';
+import './gulp/tasks/js';
 import './gulp/tasks/build';
