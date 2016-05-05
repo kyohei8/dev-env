@@ -11,12 +11,12 @@ const minifyHtmlOpt = {
 };
 
 /**
- * jadeタスク
+ * pugタスク
  */
-gulp.task('jade', () => {
-  gulp.src('app/**/!(_)*.jade')
-    .pipe($.debug({title: 'jade Compiled:'}))
-    .pipe($.jade({
+gulp.task('pug', () => {
+  gulp.src('app/**/!(_)*.pug')
+    .pipe($.debug({title: 'pug Compiled:'}))
+    .pipe($.pug({
       pretty: true, //htmlをminifyしない
       cache : true
     }))
@@ -24,7 +24,7 @@ gulp.task('jade', () => {
     .pipe(reload({stream: true}));
 });
 
-// ※ gulp js, jadeを先に実行しておくこと
+// ※ gulp js, pugを先に実行しておくこと
 gulp.task('html', () => {
   const assets = $.useref({
     searchPath: ['{app, !app/scripts', '.']

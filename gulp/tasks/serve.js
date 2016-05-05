@@ -27,7 +27,7 @@ const defaultStatsOptions = {
   errorDetails: true
 };
 
-gulp.task('serve', ['styles', 'fonts', 'jade'], () => {
+gulp.task('serve', ['styles', 'fonts', 'pug'], () => {
   browserSync({
     notify         : false,
     port           : 9000,
@@ -61,7 +61,7 @@ gulp.task('serve', ['styles', 'fonts', 'jade'], () => {
     '.tmp/fonts/**/*'
   ]).on('change', reload);
 
-  gulp.watch('app/**/*.jade', ['jade']);
+  gulp.watch('app/**/*.pug', ['pug']);
   gulp.watch('app/styles/**/*.css', ['styles']);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('bower.json', ['wiredep', 'fonts']);

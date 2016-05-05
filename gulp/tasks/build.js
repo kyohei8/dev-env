@@ -7,7 +7,7 @@ const $ = gulpLoadPlugins();
 gulp.task('extras', () => {
   gulp.src([
     'app/*.*',
-    '!app/*.jade'
+    '!app/*.pug'
   ], {
     dot: true
   }).pipe(gulp.dest('dist'));
