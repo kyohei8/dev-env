@@ -99,3 +99,10 @@ gulp.task('styles', ['stylelint'], () => {
     .pipe(gulp.dest('.tmp/styles'))
     .pipe(reload({match: "**/*.css"}));
 });
+
+gulp.task('styles:prod', ['stylelint'], () => {
+  return gulp.src('app/styles/**/main.css')
+    .pipe($.plumber())
+    .pipe(postcss(processors))
+    .pipe(gulp.dest('.tmp/styles'))
+});

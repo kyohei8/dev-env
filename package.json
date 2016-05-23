@@ -9,8 +9,8 @@
     "start": "gulp serve",
     "test": "mocha $npm_package_config_MOCHA_OPTS",
     "test:watch": "npm test -- --reporter Landing --watch --watch-extensions jsx",
-    "build": "gulp clean && gulp pug && gulp styles && gulp js:prod && gulp build && gulp serve:dist",
-    "prod": "gulp clean && gulp pug && gulp styles && gulp js:prod && gulp build",
+    "build": "gulp clean && gulp pug && gulp styles:prod && gulp js:prod && gulp build && gulp serve:dist",
+    "prod": "gulp clean && gulp pug && gulp styles:prod && gulp js:prod && gulp build",
     "cover": "rm -rf coverage && babel-node ./node_modules/istanbul/lib/cli cover _mocha -- $npm_package_config_MOCHA_OPTS",
     "cover:all": "rm -rf coverage && babel-node ./node_modules/istanbul/lib/cli --include-all-sources cover _mocha -- $npm_package_config_MOCHA_OPTS && open coverage/lcov-report/index.html"
   },
