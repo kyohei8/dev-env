@@ -18,20 +18,20 @@ export default {
 
   module: {
     preLoaders: [{
-      test: /\.(js|jsx)$/,
-      exclude: /(node_modules|bower_components)/,
+      test: /\.js$/,
+      exclude: /(node_modules)/,
       include: __dirname,
       loaders: ['eslint']
     }],
 
     loaders: [{
-      test: /\.(js|jsx)$/,
+      test: /\.js$/,
       exclude: /node_modules/,
       include: __dirname,
       loaders: ['babel']
     }],
 
-    modulesDirectories: ['src', 'src/js', 'web_modules', 'bower_components', 'node_modules'],
+    modulesDirectories: ['src', 'src/js', 'web_modules', 'node_modules'],
 
     alias:{}
   },
