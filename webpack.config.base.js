@@ -17,15 +17,24 @@ export default {
   },
 
   module: {
-    preLoaders: [{
-      test: /\.js$/,
-      exclude: /(node_modules)/,
-      include: __dirname,
-      loaders: ['eslint']
-    }],
+    preLoaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        include: __dirname,
+        loaders: ['eslint']
+      }, {
+        test: /\.tag$/,
+        exclude: /node_modules/,
+        loader: 'riotjs-loader',
+        query: {
+          template: 'jade'
+        }
+      }
+    ],
 
     loaders: [{
-      test: /\.js$/,
+      test: /\.(js|tag)$/,
       exclude: /node_modules/,
       include: __dirname,
       loaders: ['babel']

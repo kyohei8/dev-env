@@ -8,6 +8,7 @@ glob.sync('./app/scripts/*.js').forEach((file) => {
   const matcher = file.match(/scripts\/(.+)\.js/);
   const filename = matcher[1];
   _entry[filename] = [
+    'babel-polyfill',
     'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true',
     file
   ];
@@ -18,7 +19,7 @@ config.entry = _entry;
 
 config.debug = true;
 config.devtool = '#source-map';
-
+config.plugins.push(new webpack.ProvidePlugin({ riot: 'riot' }));
 config.plugins.push(new WebpackNotifierPlugin());
 config.plugins.push(new webpack.optimize.OccurenceOrderPlugin());
 config.plugins.push(new webpack.HotModuleReplacementPlugin());
