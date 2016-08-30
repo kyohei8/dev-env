@@ -1,7 +1,7 @@
-import WebpackNotifierPlugin from 'webpack-notifier';
-import baseConfig from './webpack.config.base';
-import webpack from 'webpack';
-import glob from 'glob'
+const WebpackNotifierPlugin = require('webpack-notifier');
+const baseConfig = require('./webpack.config.base');
+const webpack = require('webpack');
+const glob = require('glob');
 
 const _entry = {};
 glob.sync('./app/scripts/*.js').forEach((file) => {
@@ -28,4 +28,4 @@ config.plugins.push(new webpack.DefinePlugin({
   'process.env.NODE_ENV': JSON.stringify('development')
 }));
 
-export default config;
+module.exports = config;

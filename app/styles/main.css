@@ -8,39 +8,42 @@ h1 {
   color: var(--linkColour);
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
 body {
   color: #fafafa;
-  background: resolve("background.jpg") no-repeat 0 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: resolve('background.jpg') no-repeat 0 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .hero-unit {
   height: 100%;
   text-align: center;
-
 }
 
 .badge-box {
   & {
     text-align: left;
   }
+
   & > .badge {
     display: inline-block;
     size: 32px;
     vertical-align: middle;
     margin: 5px;
   }
+
   & > .badge.-github {
     background-image: resolve('sprites/github.png');
-    @media only screen and (-webkit-min-device-pixel-ratio: 2),
-    only screen and (min-device-pixel-ratio: 2) {
+
+    @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx) {
       background-image: resolve('sprites/github@2x.png');
     }
   }
+
   & > .badge.-google {
     background-image: resolve('sprites/google.png');
   }
@@ -48,11 +51,13 @@ body {
 
 .container {
   text: #fff bold center 1.25em 1.4 0.05em;
+
   &__nest {
     position: absolute 10px 10px;
     color: color(red alpha(-10%));
     font-size: 20px;
   }
+
   & .item {
     display: flex;
     flex-flow: row wrap;

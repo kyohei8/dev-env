@@ -1,11 +1,13 @@
-import path from 'path';
+const path = require('path');
 
-export default {
+module.exports = {
   contentBase: path.resolve(__dirname, 'app'),
 
   cache: true,
 
   entry: [],
+
+  target: 'web',
 
   output: {
     path: path.join(__dirname, '.tmp', 'scripts'),
@@ -38,6 +40,9 @@ export default {
       exclude: /node_modules/,
       include: __dirname,
       loaders: ['babel']
+    }, {
+      test: /\.(jpg|png|gif|jpeg|svg)([\?]?.*)$/,
+      loaders: ['url?limit=100000']
     }],
 
     modulesDirectories: ['src', 'src/js', 'web_modules', 'node_modules'],
