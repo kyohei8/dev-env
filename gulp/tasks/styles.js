@@ -83,7 +83,7 @@ gulp.task('stylelint', () => {
       stylelint,
       doiuse({
         browsers,
-        ignore: ['flexbox'],
+        ignore: ['flexbox', 'css-media-resolution'],
         ignoreFiles: ['**/node_modules/**/*.css', '**/_sprite.css']
       }),
       reporter({ clearMessages: true })
