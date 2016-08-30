@@ -12,7 +12,6 @@
     "MOCHA_OPTS": "test/**/*.spec.* --compilers .:babel-core/register --colors --recursive --require ./test/setup.js"
   },
   "scripts": {
-    "startx": "gulp serve",
     "start": "cross-env NODE_ENV=development nodemon --require babel-register server.js --watch server.js  --port 9000",
     "prebuild": "rimraf ./.tmp ./dist",
     "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.production.babel.js -p",
@@ -34,13 +33,11 @@
     "babel-register": "^6.14.0",
     "browser-sync": "^2.14.0",
     "chai": "^3.5.0",
-    "chalk": "^1.1.3",
     "cross-env": "^2.0.0",
     "css-loader": "^0.23.1",
     "doiuse": "^2.3.0",
     "eslint": "^2.7.0",
     "eslint-loader": "^1.3.0",
-    "glob": "^7.0.5",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-cache": "^0.4.0",
@@ -59,7 +56,6 @@
     "gulp-uglify": "^1.5.3",
     "gulp-useref": "^3.0.8",
     "gulp-util": "^3.0.7",
-    "gulp.spritesmith": "^6.2.1",
     "mocha": "^2.4.5",
     "postcss-assets": "^4.0.1",
     "postcss-cssnext": "^2.5.2",
@@ -71,10 +67,10 @@
     "postcss-short": "^1.4.0",
     "postcss-sprites": "^4.0.0",
     "pug": "^2.0.0-beta6",
+    "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
     "stylelint": "^7.2.0",
     "stylelint-config-standard": "^13.0.0",
-    "through2": "^2.0.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.14",
     "webpack-dev-middleware": "^1.6.1",
@@ -84,7 +80,6 @@
   "dependencies": {
     "lodash": "^4.8.2",
     "npm-modernizr": "^2.8.3",
-    "rimraf": "^2.5.4",
     "sanitize.css": "^3.3.0"
   }
 }
