@@ -75,6 +75,8 @@ module.exports = {
 
   entry: [],
 
+  target: 'web',
+
   output: {
     path: path.join(__dirname, '.tmp', 'scripts'),
     // devServerのパス
