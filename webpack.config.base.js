@@ -20,17 +20,17 @@ module.exports = {
 
   module: {
     preLoaders: [{
-      test: /\.js$/,
+      test: /\.(js|jsx)$/,
       exclude: /(node_modules)/,
       include: __dirname,
       loaders: ['eslint']
     }],
 
     loaders: [{
-      test: /\.js$/,
+      test: /\.(js|jsx)$/,
       exclude: /node_modules/,
       include: __dirname,
-      loaders: ['babel']
+      loaders: ['react-hot', 'babel']
     }, {
       test: /\.(jpg|png|gif|jpeg|svg)([\?]?.*)$/,
       loaders: ['url?limit=100000']

@@ -4,6 +4,7 @@
   },
   "babel": {
     "presets": [
+      "react",
       "es2015",
       "stage-0"
     ]
@@ -30,6 +31,7 @@
     "babel-loader": "^6.2.4",
     "babel-polyfill": "^6.13.0",
     "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.14.0",
     "browser-sync": "^2.14.0",
@@ -40,6 +42,7 @@
     "doiuse": "^2.3.0",
     "eslint": "^2.7.0",
     "eslint-loader": "^1.3.0",
+    "eslint-plugin-react": "^6.2.0",
     "glob": "^7.0.5",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
@@ -71,6 +74,7 @@
     "postcss-short": "^1.4.0",
     "postcss-sprites": "^4.0.0",
     "pug": "^2.0.0-beta6",
+    "react-hot-loader": "^1.3.0",
     "style-loader": "^0.13.1",
     "stylelint": "^7.2.0",
     "stylelint-config-standard": "^13.0.0",
@@ -84,6 +88,8 @@
   "dependencies": {
     "lodash": "^4.8.2",
     "npm-modernizr": "^2.8.3",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
     "rimraf": "^2.5.4",
     "sanitize.css": "^3.3.0"
   }

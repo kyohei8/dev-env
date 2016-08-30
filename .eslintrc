@@ -1,7 +1,9 @@
 # https://github.com/kyohei8/my-eslintrc/blob/master/.eslintrc.yaml
 parser: "babel-eslint"
 
-plugins: []
+plugins: [
+  'react'
+]
 
 parserOptions:
   ecmaVersion: 6        # ES2015(ES6) の構文はここに集約
@@ -19,6 +21,9 @@ globals:
 
 # eslint rules -> 0: disable, 1: warn, 2: error
 rules:
+  react/jsx-uses-react    : 1
+  react/jsx-uses-vars     : 1
+  react/react-in-jsx-scope: 1
   # Possible Errors
   comma-dangle            : [2, 'never'] # ケツカンマ無効
   no-cond-assign          : 2            # 条件式で'='を禁止

@@ -1,15 +1,8 @@
 import 'babel-polyfill';
-import { VERSION } from 'lodash';
 
-class App{
-  constructor(){
-    const sub = document.getElementById('sub');
-    sub.textContent = ` > use lodash version => ${VERSION} <`;
-  }
-  foo(){
-    // console.log('bar.');
-  }
-}
+import React from 'react';
+import { render } from 'react-dom';
+import App from './app';
 
-const app = new App();
-app.foo();
+render(<App test={100}></App>, document.getElementById('app'));
+
