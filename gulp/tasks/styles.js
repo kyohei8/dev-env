@@ -62,8 +62,8 @@ const processors = [
     },
     hooks: {
       // 出力されるスプライト画像ファイル名を変更する sprite@2xだと同じファイルが量産されるので
-      onSaveSpritesheet: function(opts, groups) {
-        if(groups[0] === '@1x'){
+      onSaveSpritesheet: function(opts, data) {
+        if(data.groups[0] === '@1x'){
           // 通常サイズのスプライト
           return path.join(opts.spritePath, '_sprites.png');
         }else{
