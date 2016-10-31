@@ -9,9 +9,15 @@ const reload = browserSync.reload;
 import webpack from 'webpack';
 import webpackConfig from '../../webpack.config.production.babel';
 
+gulp.task('js:cp', () => {
+  gulp.src([
+    'app/scripts/libs/*',
+  ]).pipe(gulp.dest('.tmp/scripts/libs'));
+});
+
 // product build
 // .tmpにjsファイルを生成
-gulp.task('js:prod', () => {
+gulp.task('js:prod', ['js:cp'], () => {
   const webpackSetting = webpack(webpackConfig);
   webpackSetting.run((err, stats) => {
     if(err){
