@@ -1,4 +1,5 @@
 import jsdom from 'mocha-jsdom';
+// import API from '../../app/scripts/api';
 import { assert } from 'chai';
 
 describe('App test', function () {
