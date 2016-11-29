@@ -48,7 +48,12 @@ $ npm run build
 To launch local server, `dist` as the root directory.
 
 ### unit test
+
 ```sh
 $ npm run test
+
+or
+
+$ npm run test:watch
 ```
 To launch local server, `test` as the root directory.

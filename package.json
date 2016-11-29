@@ -9,7 +9,7 @@
     ]
   },
   "config": {
-    "MOCHA_OPTS": "test/**/*.spec.* --compilers .:babel-core/register --colors --recursive --require ./test/setup.js"
+    "MOCHA_OPTS": "test/**/*.spec.* --compilers .:babel-core/register --colors --recursive"
   },
   "scripts": {
     "start": "cross-env NODE_ENV=development nodemon --require babel-register server.js --watch server.js  --port 9000",
