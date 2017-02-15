@@ -21,7 +21,7 @@ gulp.task('extras', () => {
   }).pipe(gulp.dest('dist/assets'));
 });
 
-gulp.task('build', ['html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['html', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*')
     .pipe($.size({title: 'build', gzip: true}));
 });
