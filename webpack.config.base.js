@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  contentBase: path.resolve(__dirname, 'app'),
+  context: __dirname,
 
   cache: true,
 
@@ -19,35 +19,35 @@ module.exports = {
   },
 
   module: {
-    preLoaders: [{
+    rules: [{
+      enforce: 'pre',
       test: /\.(js|jsx)$/,
       exclude: /(node_modules)/,
       include: __dirname,
-      loaders: ['eslint']
-    }],
-
-    loaders: [{
+      loader: 'eslint-loader'
+    }, {
       test: /\.(js|jsx)$/,
+      use: [
+        { loader: 'react-hot-loader' },
+        { loader: 'babel-loader' }
+      ],
       exclude: /node_modules/,
       include: __dirname,
-      loaders: ['react-hot', 'babel']
     }, {
       test: /\.(jpg|png|gif|jpeg|svg)([\?]?.*)$/,
-      loaders: ['url?limit=100000']
+      loader: 'url-loader',
+      options: {
+        limit: 100000
+      }
     }],
-
-    modulesDirectories: ['src', 'src/js', 'web_modules', 'node_modules'],
-
-    alias:{}
   },
 
   resolve:{
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    modules: ['src', 'src/js', 'web_modules', 'node_modules']
   },
 
-  eslint: {
-    fix: true
-  },
+  // eslint: { fix: true },
 
   plugins: []
 };
