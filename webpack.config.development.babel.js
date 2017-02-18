@@ -18,7 +18,14 @@ config.entry = _entry;
 
 config.devtool = '#source-map';
 config.plugins.push(
-  new webpack.LoaderOptionsPlugin({ debug: true })
+  new webpack.LoaderOptionsPlugin({
+    debug: true,
+    options: {
+      eslint: {
+        fix: true
+      }
+    }
+  })
 );
 
 config.plugins.push(new WebpackNotifierPlugin());
