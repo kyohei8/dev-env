@@ -14,7 +14,6 @@ config.entry = _entry;
 
 config.plugins = [
   new webpack.optimize.DedupePlugin(), // 重複したファイルを除去
-  new webpack.optimize.OccurenceOrderPlugin(), // コンパイルするファイルの順番を調整
   new webpack.optimize.UglifyJsPlugin({ // Uglify
     mangle: true, // ローカル変数名を短い名称に変更する
     sourcemap: false,
